@@ -12,21 +12,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Product {
+public class Role {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "product_id")
-
+    @Column(name = "role_id")
     private Long id;
-    private Integer quantity;
-    private float price;
-
-    private String brand;
-    private String category;
-    private String description;
-    private String size;
-    private String name;
-    private String image;
-
+    private String role;
 }

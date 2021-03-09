@@ -24,8 +24,8 @@ public class MainController {
     }
 
     @ModelAttribute(value = "products")
-    public List<Product> produts() {
-        return productService.finalAll();
+    public List<Product> products() {
+        return productService.findAll();
     }
 
     @ModelAttribute(value = "categories")
