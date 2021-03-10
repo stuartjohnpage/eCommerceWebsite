@@ -5,12 +5,15 @@ import com.ecommerce.ecommerceTTS.model.User;
 import com.ecommerce.ecommerceTTS.service.ProductService;
 import com.ecommerce.ecommerceTTS.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Controller
+@ControllerAdvice
 public class CartController {
     @Autowired
     ProductService productService;
