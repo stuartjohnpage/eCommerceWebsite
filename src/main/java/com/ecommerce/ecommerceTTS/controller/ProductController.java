@@ -1,6 +1,7 @@
 package com.ecommerce.ecommerceTTS.controller;
 
 import com.ecommerce.ecommerceTTS.model.Product;
+import com.ecommerce.ecommerceTTS.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,6 @@ public class ProductController {
     @RequestMapping(value = "/product", method = {RequestMethod.POST, RequestMethod.PUT})
     public String createOrUpdate(@Valid Product product){
         productService.save(product);
-        return "redirect:/product/" + product.getID();
+        return "redirect:/product/" + product.getId();
     }
 }

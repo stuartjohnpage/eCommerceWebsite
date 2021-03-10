@@ -2,17 +2,10 @@ package com.ecommerce.ecommerceTTS.model;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -78,6 +71,10 @@ public class User implements UserDetails{
         return null;
     }
 
+    @ElementCollection
+    private Map<Product, Integer> cart;
+
+
     @Override
     public boolean isAccountNonExpired() {
         return false;
@@ -97,5 +94,6 @@ public class User implements UserDetails{
     public boolean isEnabled() {
         return false;
     }
+
 }
 
