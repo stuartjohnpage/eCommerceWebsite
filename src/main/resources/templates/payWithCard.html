@@ -11,7 +11,7 @@
         <script
                 src='https://checkout.stripe.com/checkout.js'
                 class='stripe-button'
-                th:attr='data-key=${stripePublicKey},
+                th:attr='data-key=${public_apiKey},
              data-amount=${amount},
              data-currency=${currency}'
                 data-name='Baeldung'
@@ -23,6 +23,7 @@
         </script>
     </form>
 <footer th:replace="fragments/fragments :: footer"></footer>
+
 </body>
 
 </html>

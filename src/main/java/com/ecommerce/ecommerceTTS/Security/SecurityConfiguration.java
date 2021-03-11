@@ -25,45 +25,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
     }
-//          Can't get to cart or console.
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.
-//                authorizeRequests()
-//                .antMatchers("/console/**").permitAll()
-//                .antMatchers("/main").permitAll()
-//                .antMatchers("/signin").permitAll()
-//                .antMatchers("/cart").authenticated()
-//                .antMatchers("/custom.js").permitAll()
-//                .antMatchers("/custom.css").permitAll();
-//
-//        http.headers().frameOptions().disable();
-//
-//    }
-//}
-    //can get to cart and console, but not see main unless logged in
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/console/**").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/about").permitAll()
-                .antMatchers("/main").permitAll()
-                .antMatchers("/product").permitAll()
-                .antMatchers("/signin").permitAll()
-                .antMatchers("/custom.js").permitAll()
-                .antMatchers("/custom.css").permitAll()
-                .antMatchers("/cart").authenticated()
-                .antMatchers().hasAuthority("USER").anyRequest()
-                .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/signin").failureUrl("/signin?error=true")
-                .defaultSuccessUrl("/")
-                .loginProcessingUrl("/login")
-                .and().logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-                .logoutSuccessUrl("/")
-                .and().exceptionHandling();
-        http.headers().frameOptions().disable();
+    http.
+            authorizeRequests().antMatchers("/cart").authenticated().and()
+            .formLogin().loginPage("/signin")
+            .loginProcessingUrl("/signin").and()
+            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
+            .logoutSuccessUrl("/");
+    // remove the following before deployment (needed security stuff)
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
     }
 }
 

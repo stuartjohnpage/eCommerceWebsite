@@ -5,7 +5,6 @@
 <div th:replace="fragments/fragments :: navbar" ></div>
 
 <main role="main">
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-3">Tech Talent Store</h1>
@@ -13,6 +12,7 @@
             <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="card col-md-3 small-product-card"  th:each="product:${products}">

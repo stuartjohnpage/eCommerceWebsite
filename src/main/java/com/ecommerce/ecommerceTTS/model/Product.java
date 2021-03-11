@@ -29,4 +29,14 @@ public class Product {
     private String name;
     private String image;
 
+    public Product(int quantity, float price, String description, String name, String brand, String category,
+                   String image) {
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.name = name;
+        this.brand = brand;
+        this.category = category;
+        this.image = image;
+    }
 }
