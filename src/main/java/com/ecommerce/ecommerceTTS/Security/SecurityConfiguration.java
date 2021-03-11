@@ -25,8 +25,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
     }
-
-    //    @Override
+//          Can't get to cart or console.
+//    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http.
 //                authorizeRequests()
@@ -41,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //
 //    }
 //}
+    //can get to cart and console, but not see main unless logged in
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().disable();
@@ -49,7 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/console/**").permitAll()
                 .antMatchers("/signin").permitAll()
                 .antMatchers("/cart").authenticated()
-//                .antMatchers("/main").permitAll()
+                .antMatchers("/main").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers().hasAuthority("USER").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/signin")
