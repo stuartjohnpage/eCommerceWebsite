@@ -49,11 +49,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/console/**").permitAll()
                 .antMatchers("/signin").permitAll()
                 .antMatchers("/cart").authenticated()
-                .antMatchers("/main").permitAll()
+//                .antMatchers("/main").permitAll()
                 .antMatchers().hasAuthority("USER").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/signin")
                 .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
                 .logoutSuccessUrl("/");

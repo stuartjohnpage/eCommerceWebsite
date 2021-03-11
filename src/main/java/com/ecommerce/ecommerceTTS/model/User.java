@@ -35,7 +35,7 @@ public class User implements UserDetails{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long id;
-
+//
 //    @NotEmpty(message = "Please provide a username")
 //    @Length(min = 3, message = "Your username must have at least 3 characters")
 //    @Length(max = 15, message = "Your username cannot have more than 15 characters")
@@ -46,6 +46,10 @@ public class User implements UserDetails{
 //    @NotEmpty(message = "Please provide a password")
 //    @JsonProperty(access = Access.WRITE_ONLY)
     private String password;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
