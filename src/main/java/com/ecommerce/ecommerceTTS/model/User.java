@@ -36,10 +36,10 @@ public class User implements UserDetails{
     @Column(name = "user_id")
     private Long id;
 //
-//    @NotEmpty(message = "Please provide a username")
-//    @Length(min = 3, message = "Your username must have at least 3 characters")
-//    @Length(max = 15, message = "Your username cannot have more than 15 characters")
-//    @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
+    @NotEmpty(message = "Please provide a username")
+    @Length(min = 3, message = "Your username must have at least 3 characters")
+    @Length(max = 15, message = "Your username cannot have more than 15 characters")
+    @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
     private String username;
 
 //    @Length(min = 5, message = "Your password must have at least 5 characters")
@@ -51,7 +51,7 @@ public class User implements UserDetails{
 //    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 //    private Set<Role> roles;
 
-    @Override
+    @Transient
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
@@ -59,22 +59,22 @@ public class User implements UserDetails{
     @ElementCollection
     private Map<Product, Integer> cart;
 
-    @Override
+    @Transient
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @Override
+    @Transient
     public boolean isAccountNonLocked() {
         return true;
     }
 
-    @Override
+    @Transient
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
-    @Override
+    @Transient
     public boolean isEnabled() {
         return true;
     }

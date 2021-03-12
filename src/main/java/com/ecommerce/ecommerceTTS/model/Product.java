@@ -17,9 +17,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
-
     private Long id;
-    private Integer quantity;
+
+    private int quantity;
     private float price;
 
     private String brand;
@@ -30,7 +30,7 @@ public class Product {
     private String image;
 
     public Product(int quantity, float price, String description, String name, String brand, String category,
-                   String image) {
+                   String image, Long id) {
         this.quantity = quantity;
         this.price = price;
         this.description = description;
@@ -38,5 +38,6 @@ public class Product {
         this.brand = brand;
         this.category = category;
         this.image = image;
+        this.id = id;
     }
 }

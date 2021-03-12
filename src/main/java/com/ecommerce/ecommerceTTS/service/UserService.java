@@ -25,6 +25,7 @@ public class UserService implements UserDetailsService {
     public User findByUsername(String username){
         return userRepository.findByUsername(username);
     }
+
     public void saveNew(User user){
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -33,6 +34,7 @@ public class UserService implements UserDetailsService {
     public void saveExisting(User user){
         userRepository.save(user);
     }
+
     public User getLoggedInUser(){
         return findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
     }
