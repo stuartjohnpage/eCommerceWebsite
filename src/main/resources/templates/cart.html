@@ -26,9 +26,9 @@
                     </td>
                     <td th:if="${list.add(product.price * item.value)}" th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
                     <td>
-                        <form th:action="@{/cartDeleteItem}" method="post" style="display:inline">
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input type="hidden" name="id" th:value="${product.id}"/>
+                        <form th:action="@{/deleteCartItem}" method="post" style="display: inline">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <input type="hidden" name="id" th:value="${product.id}" />
                             <button class="btn btn-danger" style="display: inline" type="submit">Delete</button>
                         </form>
                     </td>

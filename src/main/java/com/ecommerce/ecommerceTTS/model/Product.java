@@ -15,17 +15,14 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
-    private Long id;
 
+    private Long id;
     private int quantity;
     private float price;
-
     private String brand;
     private String category;
     private String description;
-    private String size;
     private String name;
     private String image;
 

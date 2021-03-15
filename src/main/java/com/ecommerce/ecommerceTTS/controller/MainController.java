@@ -32,9 +32,9 @@ public class MainController {
 
         newProducts.add(new Product(3, (float) 1000.00, "C7 ST Desktop Front Edit", "Desktop", "Dell", "computer", "images/C7_ST_Desktop_Front.jpg", 2L));
 
-        newProducts.add(new Product(12, (float) 800.00, "New iPhone 8, Silver", "IPhone 8", "Apple", "phone", "images/iphone8-silver-select-2017.jpg", 3L));
+        newProducts.add(new Product(12, (float) 800.00, "iPhone 8, Silver", "IPhone 8", "Apple", "phone", "images/iphone8-silver-select-2017.jpg", 3L));
 
-        newProducts.add(new Product(7, (float) 700.00, "New iPhone", "IPhone", "IPhone", "phone", "images/iphonexfrontback-800x573.jpg", 4L));
+        newProducts.add(new Product(7, (float) 700.00, "iPhone 10, black", "iPhone 10", "Apple", "phone", "images/iphonexfrontback-800x573.jpg", 4L));
 
         List<Product> old = productService.findAll();
         for (Product product : old) {

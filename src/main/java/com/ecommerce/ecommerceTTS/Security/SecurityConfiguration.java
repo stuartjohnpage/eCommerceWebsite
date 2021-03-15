@@ -28,15 +28,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    http.
-            authorizeRequests().antMatchers("/cart").authenticated().and()
-            .formLogin().loginPage("/signin")
-            .loginProcessingUrl("/signin").and()
-            .logout().logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-            .logoutSuccessUrl("/");
-    // remove the following before deployment (needed security stuff)
-    http.csrf().disable();
-    http.headers().frameOptions().disable();
+        http.
+                authorizeRequests().antMatchers("/cart").authenticated().and()
+                .formLogin().loginPage("/signin")
+                .loginProcessingUrl("/login").and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/");
+        // remove the following before deployment (needed security stuff)
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }
 
